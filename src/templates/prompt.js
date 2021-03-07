@@ -28,11 +28,12 @@ function PromptTemplate(props) {
           />
         </div>
         <div className="article-list">
-          {prompt.post.map((post) => (
-            <div key={post.slug} className="article-item">
-              <PostPreview post={post} />
-            </div>
-          ))}
+          {prompt.post?.length &&
+            prompt.post.map((post) => (
+              <div key={post.slug} className="article-item">
+                <PostPreview post={post} />
+              </div>
+            ))}
         </div>
       </div>
     </Layout>
