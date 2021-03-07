@@ -1,13 +1,11 @@
 import React from "react";
 import { Link } from "gatsby";
-
-import styles from "./prompt-preview.module.css";
+import { ArrowRight } from "./icons";
+import * as styles from "./prompt-preview.module.css";
 
 export default ({ prompt }) => (
-  <div className={styles.preview}>
-    <h3 className={styles.previewTitle}>
-      <Link to={`/prompt/${prompt.slug}`}>{prompt.hashtag}</Link>
-    </h3>
-    <small>{prompt.createdAt}</small>
-  </div>
+  <Link to={`/prompt/${prompt.slug}`} className={styles.preview}>
+    <h3 className={styles.previewTitle}>{prompt.hashtag}</h3>
+    <ArrowRight />
+  </Link>
 );

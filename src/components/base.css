@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,600;1,100;1,400&display=swap");
 @font-face {
   font-family: "Avenir";
   font-weight: 400;
@@ -7,11 +8,11 @@
 }
 
 body {
-  font-family: "Avenir", Tahoma, Arial, Helvetica, sans-serif;
+  font-family: "Public Sans", sans-serif;
   font-size: 1em;
   line-height: 1.65;
-  color: #373f49;
-  background: #eee;
+  color: #252525;
+  background: #e2a9ac;
   margin: 0;
 }
 
@@ -40,13 +41,42 @@ a {
 /**
  * article grid
  */
-.article-list {
+.prompt-list {
   margin: 0;
   padding: 0;
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(1fr, 200px));
-  grid-gap: 5vmin;
+  grid-template-columns: repeat(auto-fit, minmax(1fr, 40px));
+  grid-gap: 0.4vmin;
+}
+
+.article-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(12, minmax(0px, 1fr));
+  grid-gap: 2em;
+  display: grid;
+}
+
+.article-item {
+  grid-column-end: span 4;
+}
+
+.section {
+  width: 100%;
+  margin: 2em 0 3em;
+}
+
+.section-header {
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 0.6em;
+}
+
+.border-bottom {
+  border-bottom: 0.25em solid #252525;
 }
 
 /**
@@ -69,4 +99,13 @@ a {
 
 .list-inline li {
   display: inline-block;
+}
+
+/**
+* mobile styles
+*/
+@media (max-width: 600px) {
+  .article-item {
+    grid-column-end: span 12;
+  }
 }

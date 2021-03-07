@@ -1,19 +1,46 @@
 .previewTitle {
-  font-size: 1.5em;
+  margin: 0;
+  font-size: 3em;
 }
 
-.tag {
-  color: #a0a0a0;
+.card {
+  margin: 2rem 0;
+  height: 100%;
+  flex-direction: column;
+  flex: 1 1 0%;
+  align-self: stretch;
+  display: flex;
+}
+
+.article {
+  align-self: stretch;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+a.card {
   text-decoration: none;
-  display: inline-block;
-  padding: 0.33333rem 0.5rem;
-  line-height: 1;
-  border-radius: 2px;
-  border: 1px solid #a0a0a0;
-  margin-right: 0.5em;
+}
+
+a.card:hover {
+  border-bottom: 0.25em solid #252525;
 }
 
 .summary {
+  white-space: initial;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
   max-height: 220px;
   text-overflow: ellipsis;
+}
+
+.summary > p {
+  display: contents;
+}
+
+.summary > p:after {
+  content: "\A";
+  white-space: pre;
 }

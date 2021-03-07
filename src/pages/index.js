@@ -5,27 +5,38 @@ import { Helmet } from "react-helmet";
 import Layout from "../components/layout";
 import ArticlePreview from "../components/article-preview";
 import PromptPreview from "../components/prompt-preview";
+import PostPreview from "../components/post-preview";
 
 function RootIndex(props) {
-  console.log(props);
   const siteTitle = props.data.site.siteMetadata.title;
-  const posts = props.data.allContentfulBlogPost.edges;
+  const posts = props.data.allContentfulPost.edges;
   const prompts = props.data.allContentfulPrompt.edges;
 
   return (
     <Layout location={props.location}>
-      <div style={{ background: "#fff" }}>
-        <Helmet title={siteTitle} />
+      <Helmet title={siteTitle} />
 
-        <div className="wrapper">
-          <ul className="article-list">
+      <div className="wrapper">
+        <section className="section">
+          <div className="section-header border-bottom">Prompts</div>
+          <ul className="prompt-list">
             {prompts.map(({ node }) => (
               <div key={node.slug}>
                 <PromptPreview prompt={node} />
               </div>
             ))}
           </ul>
-        </div>
+        </section>
+        <section className="section">
+          <div className="section-header border-bottom">Recent Submissions</div>
+          <ul className="article-list">
+            {posts.map(({ node }) => (
+              <div key={node.slug} className="article-item">
+                <PostPreview post={node} />
+              </div>
+            ))}
+          </ul>
+        </section>
       </div>
     </Layout>
   );
@@ -45,6 +56,18 @@ export const pageQuery = graphql`
         node {
           slug
           hashtag
+        }
+      }
+    }
+    allContentfulPost(sort: { fields: [createdAt], order: DESC }) {
+      edges {
+        node {
+          slug
+          title
+          createdAt(formatString: "MM.DD.yyyy")
+          hashtag {
+            hashtag
+          }
         }
       }
     }

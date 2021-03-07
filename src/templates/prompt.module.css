@@ -2,9 +2,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1em;
+}
 
-  height: 12.5em;
-  background: #e1e1e1;
-  margin: -1em -2.5em 1em;
-  font-size: 2em;
+.title {
+  font-size: 3em;
+  font-style: italic;
+  margin: 0;
+}
+
+.prompt {
+  padding: 2em 0;
+  border-bottom: 0.25em solid #252525;
 }

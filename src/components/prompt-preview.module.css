@@ -1,14 +1,16 @@
 .previewTitle {
-  font-size: 1.5em;
+  font-size: 1em;
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
 }
 
-.tag {
-  color: #a0a0a0;
+.previewTitle > a {
   text-decoration: none;
-  display: inline-block;
-  padding: 0.33333rem 0.5rem;
-  line-height: 1;
-  border-radius: 2px;
-  border: 1px solid #a0a0a0;
-  margin-right: 0.5em;
+}
+
+.preview {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: baseline;
 }
